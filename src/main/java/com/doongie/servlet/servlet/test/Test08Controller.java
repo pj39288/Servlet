@@ -32,9 +32,9 @@ public class Test08Controller extends HttpServlet{
 		out.println("<html><head><title></title></head><body>");
 
 		
-		for(int i = 0; i < list.length; i++) {
-			if(list[i].contains(search)) {
-				out.println(list[i]);
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).contains(search)) {
+				out.println(list.get(i));
 			}
 		}
 		
