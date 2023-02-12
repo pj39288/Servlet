@@ -46,27 +46,41 @@
 <%
 	String menu = request.getParameter("menu");
 	String optionString = request.getParameter("option");
-	int option = Integer.parseInt(optionString);
+	
+	out.println("optionString = " + optionString); 
+
+	int option = 0;
+	
+	if(optionString == null){
+		option = 0;
+	} else if(optionString.equals("4") ){
+		option = Integer.parseInt(optionString);
+	} 
+	
+	out.println("option = "+  option);
+	
 	
 	if(option == 4){
 		for(int i = 0; i < list.size(); i++){
 			
-			if((double)list.get(i).get("point") <= 4){
-				continue;
-			} else {
+			if(list.get(i).get("menu").equals(menu) && (double)list.get(i).get("point") > 4.0){
+
 %>
+
 			<tr>
 				<td><%=list.get(i).get("name") %></td>
 				<td><%=list.get(i).get("menu") %></td>
 				<td><%=list.get(i).get("point") %></td>
 			</tr>
 <%
+
 				
 			}
 		}
 		
 	} else {
 		for(int i = 0; i < list.size(); i++){
+			if(list.get(i).get("menu").equals(menu)){
 %>
 			<tr>
 				<td><%=list.get(i).get("name") %></td>
@@ -74,7 +88,7 @@
 				<td><%=list.get(i).get("point") %></td>
 			</tr>
 <%
-			
+			}
 		}
 		
 	}
