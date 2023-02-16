@@ -104,8 +104,8 @@
 	String idString = request.getParameter("id");
 	int id = Integer.parseInt(idString);
 
-	for(int i = 0; i < musicList.size(); i++){
-		if(i+1 == id){
+	for(int i = 0; i < musicList.size(); i++) {
+		if(id == (int) musicList.get(i).get("id")) {
 			
 %>
 		<img src="<%=musicList.get(i).get("thumbnail") %>">
@@ -118,6 +118,7 @@
 	
 <%
 		}
+		
 	}
 
 %>
